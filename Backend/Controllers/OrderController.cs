@@ -43,6 +43,7 @@ namespace RestaurantFavesBackend.Controllers
 			if (database.Orders.Find(id) is not Order existing)
 				return NotFound();
 
+			order.Rating = Math.Clamp(order.Rating ?? 0, (byte)0, (byte)5);
 			existing.CopyFrom(order);
 			database.Orders.Update(existing);
 			database.SaveChanges();

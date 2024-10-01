@@ -45,16 +45,16 @@ export class RestaurantFavesService {
 
 	add(order: Order): void {
 		order.orderAgain ??= false;
-		this.client.post(baseUrl, order).subscribe(_ => this.refresh());
+		this.client.post<Order>(baseUrl, order).subscribe(() => this.refresh());
 	}
 
 	update(order: Order): void {
-		this.client.put(baseUrl + order.id, order).subscribe(_ => this.refresh());
+		this.client.put<Order>(baseUrl + order.id, order).subscribe(() => this.refresh());
 	}
 
 	delete(which: Number): void {
 		let url: string = baseUrl + "/" + which;
 		console.log(url);
-		this.client.delete(url).subscribe(_ => this.refresh());
+		this.client.delete<void>(url).subscribe(() => this.refresh());
 	}
 }

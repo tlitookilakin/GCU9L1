@@ -1,15 +1,15 @@
-<table>
+<table class="table">
 	<thead>
 		<tr>
-			<th>R</th>
+			<th class="icon-col"></th>
 			<th>Restaurant</th>
 			<th>Description</th>
 			<th>Rating</th>
-			<th>D</th>
+			<th class="icon-col"></th>
 		</tr>
 	</thead>
 	<tbody>
-		@for (order of (allItems | async); track $index) {
+		@for (order of (allItems | async); track order.id) {
 			<tr app-order-item [order]="order" (deleted)="deleteItem(order)"></tr>
 		}
 	</tbody>

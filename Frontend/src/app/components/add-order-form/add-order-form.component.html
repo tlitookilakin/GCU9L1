@@ -1,14 +1,20 @@
 <form>
-	<input type="text" [(ngModel)]="order.description" name="description"/>
-	<input type="text" [(ngModel)]="order.restaurant" name="restaurant"/>
-	<select [(ngModel)]="order.rating" name="rating">
-		<option value="0">0 Stars</option>
-		<option value="1">1 Stars</option>
-		<option value="2">2 Stars</option>
-		<option value="3">3 Stars</option>
-		<option value="4">4 Stars</option>
-		<option value="5">5 Stars</option>
+	<input type="text" [(ngModel)]="order.restaurant" name="restaurant" class="form-control" placeholder="Restaurant"/>
+	<input type="text" [(ngModel)]="order.description" name="description" class="form-control" placeholder="Description"/>
+	<select [(ngModel)]="order.rating" name="rating" class="form-select">
+		<option value="0">&#x2606;&#x2606;&#x2606;&#x2606;&#x2606;</option>
+		<option value="1">&#x2605;&#x2606;&#x2606;&#x2606;&#x2606;</option>
+		<option value="2">&#x2605;&#x2605;&#x2606;&#x2606;&#x2606;</option>
+		<option value="3">&#x2605;&#x2605;&#x2605;&#x2606;&#x2606;</option>
+		<option value="4">&#x2605;&#x2605;&#x2605;&#x2605;&#x2606;</option>
+		<option value="5">&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;</option>
 	</select>
-	<input type="checkbox" [(ngModel)]="order.orderAgain" name="orderAgain"/>
-	<button type="submit" (click)="submit()">Add</button>
+	<div class="group">
+		<label for="orderagaininput" class="form-label">Order again? &nbsp;</label>
+		<input type="checkbox" [(ngModel)]="order.orderAgain" name="orderAgain" class="form-check-input" id="orderagaininput"/>
+	</div>
+	<div></div>
+	<div class="align-right">
+		<button type="submit" (click)="submit()" class="btn btn-primary">Add</button>
+	</div>
 </form>

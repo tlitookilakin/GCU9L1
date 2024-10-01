@@ -13,7 +13,7 @@ import { PageService } from '../../services/page.service';
 export class AddOrderFormComponent {
 	constructor(private page: PageService) { }
 
-	order: Order = {} as Order;
+	order: Order = this.getDefaultOrder();
 	isEditing: boolean = false;
 
 	@Output() created: EventEmitter<Order> = new EventEmitter<Order>();
@@ -25,7 +25,7 @@ export class AddOrderFormComponent {
 
 	submit(): void {
 		let value: Order = this.order;
-		this.order = {} as Order;
+		this.order = this.getDefaultOrder();
 		if (this.isEditing) {
 			this.isEditing = false;
 			this.edited.emit(value);
@@ -37,5 +37,9 @@ export class AddOrderFormComponent {
 	edit(order: Order): void {
 		this.isEditing = true;
 		this.order = {... order};
+	}
+
+	getDefaultOrder() : Order {
+		return {rating: 0, restaurant: "", orderAgain: false, description: "", id: 0};
 	}
 }

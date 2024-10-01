@@ -1,13 +1,20 @@
-<td>
+<td class="icon">
 	@if (order.orderAgain) {
-		Y
+		&#xF633;
 	} @else {
-		N
+		&#xF659;
 	}
 </td>
 <td>{{order.restaurant}}</td>
 <td>{{order.description}}</td>
-<td>{{order.rating}}</td>
+<td>@switch (order.rating) {
+	@case(1) {&#x2605;&#x2606;&#x2606;&#x2606;&#x2606;}
+	@case(2) {&#x2605;&#x2605;&#x2606;&#x2606;&#x2606;}
+	@case(3) {&#x2605;&#x2605;&#x2605;&#x2606;&#x2606;}
+	@case(4) {&#x2605;&#x2605;&#x2605;&#x2605;&#x2606;}
+	@case(5) {&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;}
+	@default {&#x2606;&#x2606;&#x2606;&#x2606;&#x2606;}
+}</td>
 <td>
-	<button (click)="deleteThis()"></button>
+	<button (click)="deleteThis()" class="icon btn btn-outline-danger btn-small">&#xF5DE;</button>
 </td>

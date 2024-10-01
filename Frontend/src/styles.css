@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+.icon {
+	font-family: 'bootstrap-icons';
+}
+
+.btn-small {
+	padding: 0px;
+	width: 2em;
+	height: 2em;
+}
+
+.icon-col {
+	width: 2em;
+}
+
+.align-right {
+	text-align: right;
+}
