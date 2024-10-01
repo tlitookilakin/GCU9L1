@@ -16,7 +16,7 @@ namespace RestaurantFavesBackend.Controllers
 				results = results.Where(o => o.OrderAgain == orderAgain.Value);
 
 			if (restaurant is not null)
-				results = results.Where(o => o.Restaurant.StartsWith(restaurant, StringComparison.OrdinalIgnoreCase));
+				results = results.Where(o => o.Restaurant is string s && s.Contains(restaurant, StringComparison.OrdinalIgnoreCase));
 
 			return Ok(results);
 		}
@@ -57,6 +57,7 @@ namespace RestaurantFavesBackend.Controllers
 				return NotFound();
 
 			database.Orders.Remove(order);
+			database.SaveChanges();
 			return NoContent();
 		}
 	}

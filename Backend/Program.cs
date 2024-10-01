@@ -26,7 +26,8 @@ namespace RestaurantFavesBackend
 						//replace localhost with yours
 						//also add your deployed website
 						policy.WithOrigins("http://localhost:4200",
-										   "https://dinosaur-lore-store.com")
+										   "https://dinosaur-lore-store.com",
+										   "http://localhost:*")
 							.AllowAnyMethod().AllowAnyHeader();
 					});
 			});
@@ -46,7 +47,7 @@ namespace RestaurantFavesBackend
 
 
 			app.MapControllers();
-
+			app.UseCors();
 			app.Run();
 		}
 	}

@@ -1,0 +1,14 @@
+<form>
+	<input type="text" [(ngModel)]="order.description" name="description"/>
+	<input type="text" [(ngModel)]="order.restaurant" name="restaurant"/>
+	<select [(ngModel)]="order.rating" name="rating">
+		<option value="0">0 Stars</option>
+		<option value="1">1 Stars</option>
+		<option value="2">2 Stars</option>
+		<option value="3">3 Stars</option>
+		<option value="4">4 Stars</option>
+		<option value="5">5 Stars</option>
+	</select>
+	<input type="checkbox" [(ngModel)]="order.orderAgain" name="orderAgain"/>
+	<button type="submit" (click)="submit()">Add</button>
+</form>

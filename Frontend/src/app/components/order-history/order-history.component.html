@@ -1,0 +1,16 @@
+<table>
+	<thead>
+		<tr>
+			<th>R</th>
+			<th>Restaurant</th>
+			<th>Description</th>
+			<th>Rating</th>
+			<th>D</th>
+		</tr>
+	</thead>
+	<tbody>
+		@for (order of (allItems | async); track $index) {
+			<tr app-order-item [order]="order" (deleted)="deleteItem(order)"></tr>
+		}
+	</tbody>
+</table>

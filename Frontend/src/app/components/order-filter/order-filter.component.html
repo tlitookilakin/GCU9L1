@@ -1,0 +1,11 @@
+<h3>Filter</h3>
+<div>
+	<input type="text" [(ngModel)]="restaurantName" (ngModelChange)="updateRestaurantFilter()" placeholder="Restaurant name"/>
+	<button (click)="toggleShowOrderAgain()">
+		@switch (showOrderAgain) {
+			@case (null) { - }
+			@case (true) { Y }
+			@case (false) { N }
+		}
+	</button>
+</div>

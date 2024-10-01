@@ -1,0 +1,13 @@
+<td>
+	@if (order.orderAgain) {
+		Y
+	} @else {
+		N
+	}
+</td>
+<td>{{order.restaurant}}</td>
+<td>{{order.description}}</td>
+<td>{{order.rating}}</td>
+<td>
+	<button (click)="deleteThis()"></button>
+</td>
